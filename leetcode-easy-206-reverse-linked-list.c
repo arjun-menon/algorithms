@@ -38,4 +38,3 @@ struct ListNode* reverseListRecursive(struct ListNode* head) {
 
     return reversedList;
 }*/
-
