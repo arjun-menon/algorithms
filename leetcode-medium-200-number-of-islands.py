@@ -1,35 +1,16 @@
 class Solution:
-    def is_valid(self, i, j):
-        return i >= 0 and i < self.m and j >= 0 and j < self.n
-    
-    def search(self, i, j):
-        self.grid[i][j] = '0'
-        
-        self.explore(i, j-1)
-        self.explore(i, j+1)
-        self.explore(i-1, j)
-        self.explore(i+1, j)
-
-    def explore(self, i, j):
-        if self.is_valid(i, j) and self.grid[i][j] == '1':
-            self.search(i, j)
-            return True
-        return False
-
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
-        if not grid:
-            return 0
-        self.grid = grid
-        self.m = len(grid)
-        self.n = len(grid[0])
-        
-        islands = 0
-        for i in range(self.m):
-            for j in range(self.n):
-                if self.explore(i, j):
+    def numIslands(self, grid): # :type grid: List[List[str]] :rtype: int
+        def search(i, j):
+            if i >= 0 and i < m and j >= 0 and j < n and grid[i][j] == '1':
+                grid[i][j] = '0'
+                search(i, j-1)
+                search(i, j+1)
+                search(i-1, j)
+                search(i+1, j)
+                return True
+        islands, m, n = 0, len(grid), len(grid[0]) if len(grid) else 0
+        for i in range(m):
+            for j in range(n):
+                if search(i, j):
                     islands += 1
         return islands
