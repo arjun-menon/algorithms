@@ -3,8 +3,10 @@ void moveZeroes(int* nums, int numsSize) {
     for (int i = 0; i < numsSize; i++) {
         while (nums[i] == 0)
             i++;
-        if (i < numsSize)
-            nums[w++] = nums[i];
+        if (i < numsSize) {
+            if (w < i) nums[w] = nums[i];
+            w++;
+        }
     }
     while(w < numsSize) nums[w++] = 0;
 }
