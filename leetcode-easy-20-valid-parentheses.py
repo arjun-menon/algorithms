@@ -15,3 +15,4 @@ class Solution:
                 if c != br[stack.pop()]:
                     return False
         return not stack
+
