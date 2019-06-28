@@ -23,6 +23,7 @@ struct ListNode* reverseList(struct ListNode* head) {
     return prev;
 }
 
+// The one below is ultra-slow:
 /*
 struct ListNode* reverseListRecursive(struct ListNode* head) {
     if (!head || !head->next)
@@ -37,4 +38,5 @@ struct ListNode* reverseListRecursive(struct ListNode* head) {
     head->next = NULL;
 
     return reversedList;
-}*/
+}
+*/
